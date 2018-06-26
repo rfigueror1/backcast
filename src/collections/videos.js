@@ -7,9 +7,9 @@ var Videos = Backbone.Collection.extend({
   // first use the sample data
   initalize: function() {
     
-    var data = exampleVideoData;
+    // var data = exampleVideoData;
     
-    console.log(data, 'data');
+    // console.log(data, 'data');
   },
   
   
