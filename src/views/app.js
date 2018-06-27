@@ -5,15 +5,30 @@ var AppView = Backbone.View.extend({
   
 
   initialize: function() {
-    this.videos = new Videos(exampleVideoData);
+    
+    //toggle to switch between fake data
+    // this.videos = new Videos(exampleVideoData);
+    
+    
     // inoking a new instance of the Videos collection
+    // event listener that receives data 
+    
+    //toggle to switch between real data
+    this.videos = new Videos();
+    
+    this.listenTo(this.videos, 'sync', this.searchBar);
+    this.videos.search();
     this.render();
     
     
   },
   
+  searchBar: function() {
+    if (this.videos.length) {
+      this.videos.at(0).select();
+    }
+  },
   
-
 
   render: function() {
     this.$el.html(this.template());
